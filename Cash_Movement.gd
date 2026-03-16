@@ -79,7 +79,7 @@ func _play_breathe():
 	match last_direction:
 		"down": anim.play("idle_breathe_down")
 		"side": anim.play("idle_breathe_side")
-		"up":   pass  # niente breathe di schiena, torna idle normale
+		"up":   anim.play("idle_up_breathe")
 	await anim.animation_finished
 	is_breathing = false
 	idle_timer = 0.0
@@ -143,9 +143,9 @@ func _update_animation(input_dir: Vector2, is_running: bool):
 # idle_side           — fermo, guarda di lato, dondolio leggero - done
 #
 # --- IDLE BREATHE (dopo 4 sec fermo) — 8 frame ---
-# idle_breathe_down   — respiro profondo frontale, più vivo dell'idle - to do
-# idle_breathe_side   — respiro profondo laterale - to do
-# (idle_up non ha breathe — di schiena non si vede su 32x32)
+# idle_breathe_down   — respiro profondo frontale, più vivo dell'idle - done
+# idle_breathe_side   — respiro profondo laterale - done
+# idle_up_breathe - done
 #
 # --- WALK (cammina) — 8 frame ---
 # walk_down           — ciclo camminata frontale, braccia oscillano - done
@@ -153,7 +153,7 @@ func _update_animation(input_dir: Vector2, is_running: bool):
 # walk_side           — ciclo camminata laterale, braccia oscillano - done
 #
 # --- RUN (corre) — 6 frame ---
-# run_down            — corpo inclinato in avanti, stride ampio - to do
+# run_down            — corpo inclinato in avanti, stride ampio - done
 # run_up              — stesso di schiena, gambe più aperte - to do
 # run_side            — corpo inclinato, stride più largo del walk - to do
 #
